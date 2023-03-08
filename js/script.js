@@ -7,11 +7,13 @@
 Creare l’array di oggetti con le informazioni fornite.
 Stampare su console, per ogni membro del team, le informazioni di nome, ruolo e la stringa della foto
 Stampare le stesse informazioni su DOM sottoforma di stringhe
+Trasformare la stringa foto in una immagine effettiva
 */
 
+//creiamo variabile lista contenitore  dei list item
 const listTeamEl = document.getElementById("list-team");
 
-
+//Creare l’array di oggetti con le informazioni fornite.
 let arrayTeam = [
     {
         nome : "Wayne Barnett" ,
@@ -53,19 +55,33 @@ let arrayTeam = [
 ];
 
 
+// Stampare su console, per ogni membro del team, le informazioni di nome, ruolo e la stringa della foto
 for(let chiave in arrayTeam){
     console.log(arrayTeam[chiave]);
 }
 
 
-for (let i = 0 ; i < arrayTeam.length ; i++) {
+//creiamo variabile in cui memorizziamo funzione che genera "li" in pagina
+let listItemTeam = createList(listTeamEl, arrayTeam);
 
-    let listInner = document.createElement("li");
-    listInner.innerHTML = `Nome : ${arrayTeam[i].nome} <br>  Lavoro : ${arrayTeam[i].lavoro} <br> Immagine : ${arrayTeam[i].immagine}`;
-    
-    listTeamEl.append(listInner);
-    
-    
+
+
+
+
+
+
+//funzione che genera "li" in pagina
+function createList(listElement , array ){
+
+    for (let i = 0 ; i < array.length ; i++) {
+        let listInner = document.createElement("li");
+
+        listInner.innerHTML = `Nome : ${array[i].nome} <br>  Lavoro : ${array[i].lavoro} <br> Immagine : <img src="img/${array[i].immagine}"><img> `;
+        
+        listElement.append(listInner);
+        
+        
+    }
 }
 
 
