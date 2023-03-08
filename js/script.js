@@ -75,8 +75,8 @@ function createList(listElement , array ){
 
     for (let i = 0 ; i < array.length ; i++) {
         let listInner = document.createElement("li");
-
-        listInner.innerHTML = `Nome : ${array[i].nome} <br>  Lavoro : ${array[i].lavoro} <br> Immagine : <img src="img/${array[i].immagine}"><img> `;
+        listInner.classList.add("card");
+        listInner.innerHTML = `<img src="img/${array[i].immagine}"></img> <br> <p style = "border-bottom: 1px solid ; padding-bottom: 1em;">${array[i].nome}</p> <br> <p>${array[i].lavoro}</p>`;
         
         listElement.append(listInner);
         
