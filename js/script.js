@@ -5,7 +5,8 @@
 
 /*
 Creare l’array di oggetti con le informazioni fornite.
-Stampare su console, per ogni membro del team, le informazioni di nome, ruolo e la stringa della foto.
+Stampare su console, per ogni membro del team, le informazioni di nome, ruolo e la stringa della foto
+Stampare le stesse informazioni su DOM sottoforma di stringhe
 */
 
 const listTeamEl = document.getElementById("list-team");
@@ -57,7 +58,15 @@ for(let chiave in arrayTeam){
 }
 
 
+for (let i = 0 ; i < arrayTeam.length ; i++) {
 
+    let listInner = document.createElement("li");
+    listInner.innerHTML = `Nome : ${arrayTeam[i].nome} <br>  Lavoro : ${arrayTeam[i].lavoro} <br> Immagine : ${arrayTeam[i].immagine}`;
+    
+    listTeamEl.append(listInner);
+    
+    
+}
 
 
 
